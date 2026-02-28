@@ -7,6 +7,7 @@ module.exports = defineConfig({
         timeout: 40 * 1000,
     },
     reporter: 'html',
+    retries: 2,
     use: {
         browserName: 'chromium',
         headless: false,

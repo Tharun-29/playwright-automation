@@ -9,6 +9,11 @@ class SauceCheckoutPage extends BasePage {
         this.continueButton = page.locator('#continue');
         this.finishButton = page.locator('#finish');
         this.completeHeader = page.locator('.complete-header');
+        this.errorMessage = page.locator('[data-test="error"]');
+    }
+
+    async getErrorMessage() {
+        return await this.errorMessage.innerText();
     }
 
     async fillInformation(firstName, lastName, zip) {

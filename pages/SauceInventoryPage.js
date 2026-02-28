@@ -6,6 +6,9 @@ class SauceInventoryPage extends BasePage {
         this.headerTitle = page.locator('.title');
         this.shoppingCart = page.locator('.shopping_cart_link');
         this.inventoryItems = page.locator('.inventory_item');
+        this.burgerMenu = page.locator('#react-burger-menu-btn');
+        this.logoutLink = page.locator('#logout_sidebar_link');
+        this.sortDropdown = page.locator('.product_sort_container');
     }
 
     async getInventoryItems() {
@@ -27,6 +30,14 @@ class SauceInventoryPage extends BasePage {
 
     async openCart() {
         await this.shoppingCart.click();
+    }
+    async logout() {
+        await this.burgerMenu.click();
+        await this.logoutLink.click();
+    }
+
+    async sortBy(option) {
+        await this.sortDropdown.selectOption(option);
     }
 }
 module.exports = { SauceInventoryPage };
